@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title>CRUD com NodeJS</title>
+</head>
+<body>
+    <nav class="navbar navbar-dark bg-primary">
+        <div>
+            <a class="navbar-brand" href="/">Home</a> 
+            <a class="navbar-brand" href="/show">Cadastro</a>           
+        </div>        
+        <a class="navbar-brand" href="#">Sair</a>  
+    </nav>
+    <div class="container-md">
+        <div class="row mb-5">
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="card-header text-center">
+                            <h4>Editar Registro</h4>
+                        </div>
+                    </div>
+                    <div class="card-body">    
+                        <% data.forEach(function(details) { %>
+                            <form action="/edit/<%= details._id%>" method="POST">
+                                <input type="text" placeholder="Nome" name="name">
+                                <input type="text" placeholder="E-mail" name="email">
+                                <br />                                
+                                <br />
+                                <button type="submit" class="btn btn-outline-success">Editar</button>
+                                <a href="/show" class="btn btn-outline-danger">Cancelar</a></button>
+                            </form>
+                        <% }) %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>            
+        
+
+</body>
+</html>

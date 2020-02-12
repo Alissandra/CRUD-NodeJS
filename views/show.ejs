@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title>CRUD com NodeJS</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-dark bg-primary">
+        <div>
+            <a class="navbar-brand" href="/">Home</a> 
+            <a class="navbar-brand" href="/show">Cadastro</a>           
+        </div>        
+        <a class="navbar-brand" href="#">Sair</a>  
+    </nav>
+    <div class="container-md">
+        <div class="row mb-5">
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="card-header text-center">                            
+                            <a href="/" class="btn btn-primary btn-lg">Novo</a>
+                        </div>                        
+                        <div class="list-group list-group-flush">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Nome</th>
+                                        <th>E-mail</th>
+                                        <th></th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <%data.forEach(function(details) {%>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <p class="card-text"><%= details.name %></p>
+                                            </td>
+                                            <td>
+                                                <p class="card-text"><%=details.email %></p>
+                                            </td>
+                                            <td>
+                                                <a href="/edit/<%= details._id %>" class="btn btn-outline-primary btn-sm">Editar</a>
+                                            </td>
+                                            <td>
+                                                <a href="/delete/<%= details._id %>" class="btn btn-outline-warning btn-sm">Deletar</a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                <% }) %>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
